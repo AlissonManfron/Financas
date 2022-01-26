@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/icone_transacao_item_receita.xml" value="0.3796875" />
+        <entry key="app/src/main/res/drawable/icone_transacao_item_receita_green.xml" value="0.37384615384615383" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/activity_lista_transacoes.xml" value="0.3494791666666667" />
+        <entry key="app/src/main/res/layout/activity_transaction_list.xml" value="0.36354166666666665" />
+        <entry key="app/src/main/res/layout/alert_add_transaction.xml" value="0.36354166666666665" />
+        <entry key="app/src/main/res/layout/form_transacao.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/resume_card.xml" value="0.29739583333333336" />
+        <entry key="app/src/main/res/layout/resumo_card.xml" value="0.36354166666666665" />
+        <entry key="app/src/main/res/layout/transacao_item.xml" value="0.3351851851851852" />
+        <entry key="app/src/main/res/layout/transaction_item.xml" value="0.36354166666666665" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
