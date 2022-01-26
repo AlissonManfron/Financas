@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Finanças</string>
+    <string name="lista_transacoes_adiciona" />
+    <string name="add_revenue">Adicionar receita</string>
+    <string name="add_expense">Adicionar despesa</string>
+    <string name="edit_revenue">Altera receita</string>
+    <string name="edit_expense">Altera despesa</string>
+    <string name="value">Valor</string>
+    <string name="date">Data</string>
+    <string name="category">Categoria</string>
+    <string name="revenue">Receita</string>
+    <string name="expense">Despesa</string>
+    <string name="total">Total</string>
+    <string name="price_hint">R$ 100,00</string>
+    <string name="revenue_hint">Econômia</string>
+    <string name="expense_hint">Conta de luz</string>
+    <string name="button_save_transaction">Salvar</string>
+</resources>
