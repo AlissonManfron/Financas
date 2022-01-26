@@ -1,46 +1,26 @@
 package br.com.alisson.financas.presenter.activity.home
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.alisson.financas.data.extensions.toExpenseRS
 import br.com.alisson.financas.data.extensions.toRS
 import br.com.alisson.financas.data.extensions.toRevenueRS
-import br.com.alisson.financas.data.local.AppDatabase
-import br.com.alisson.financas.data.local.repository.finance.FinanceRepositoryImpl
-import br.com.alisson.financas.data.local.repository.transaction.TransactionsRepositoryImpl
 import br.com.alisson.financas.databinding.ActivityHomeBinding
 import br.com.alisson.financas.domain.model.Transaction
-import br.com.alisson.financas.domain.usecase.CreateTransaction
-import br.com.alisson.financas.domain.usecase.GetFinance
-import br.com.alisson.financas.domain.usecase.GetTransactions
-import br.com.alisson.financas.domain.usecase.UpdateFinance
 import br.com.alisson.financas.presenter.activity.transacion.AlertAddTransaction
 import br.com.alisson.financas.presenter.adapter.TransactionsListAdapter
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {
 
-    private val viewModel: HomeViewModel by viewModels(
-        factoryProducer = {
-            val dataBase = AppDatabase.getDatabase(this)
-            val trRepository = TransactionsRepositoryImpl(dataBase.transactionDao())
-            val fnRepository = FinanceRepositoryImpl(dataBase.financeDao())
-
-            HomeViewModel.HomeViewModelFactory(
-                GetFinance(fnRepository),
-                GetTransactions(trRepository),
-                CreateTransaction(trRepository),
-                UpdateFinance(fnRepository)
-            )
-        }
-    )
-
+    private val viewModel: HomeViewModel by viewModel()
+    private val adapter: TransactionsListAdapter by inject()
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var adapter: TransactionsListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +35,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initRecyclerView() {
-        adapter = TransactionsListAdapter(emptyList(), this)
         binding.listaTransacoesListview.layoutManager = LinearLayoutManager(this)
         binding.listaTransacoesListview.adapter = adapter
     }

@@ -2,7 +2,6 @@ package br.com.alisson.financas.presenter.activity.home
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import br.com.alisson.financas.domain.model.Transaction
 import br.com.alisson.financas.domain.usecase.CreateTransactionUseCase
@@ -53,23 +52,6 @@ class HomeViewModel(
     fun updateFinance(transaction: Transaction) {
         viewModelScope.launch {
             updateFinanceUseCase(transaction)
-        }
-    }
-
-    class HomeViewModelFactory(
-        private val getFinanceUseCase: GetFinanceUseCase,
-        private val getTransactionsUseCase: GetTransactionsUseCase,
-        private val createTransactionUseCase: CreateTransactionUseCase,
-        private val updateFinanceUseCase: UpdateFinanceUseCase
-    ) : ViewModelProvider.Factory {
-        @Suppress("UNCHECKED_CAST")
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return HomeViewModel(
-                getFinanceUseCase,
-                getTransactionsUseCase,
-                createTransactionUseCase,
-                updateFinanceUseCase
-            ) as T
         }
     }
 }

@@ -13,9 +13,10 @@ import br.com.alisson.financas.data.util.FinanceCategory
 import br.com.alisson.financas.databinding.TransactionItemBinding
 
 class TransactionsListAdapter(
-    private var transactions: List<Transaction>,
     private val context: Context
 ) : RecyclerView.Adapter<TransactionsListAdapter.ViewHolder>() {
+
+    private var transactions: List<Transaction> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemBinding = TransactionItemBinding.inflate(LayoutInflater.from(context), parent, false)
