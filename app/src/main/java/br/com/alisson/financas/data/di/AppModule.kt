@@ -16,7 +16,7 @@ import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val appModule = module {
+val dataModule = module {
 
     fun provideDatabase(application: Application): AppDatabase {
         return Room.databaseBuilder(application, AppDatabase::class.java, "app_db")
@@ -44,8 +44,4 @@ val appModule = module {
 
     single<GetTransactionsUseCase> { GetTransactions(get()) }
     single<CreateTransactionUseCase> { CreateTransaction(get()) }
-
-    factory { TransactionsListAdapter(get()) }
-
-    viewModel { HomeViewModel(get(), get(), get(), get()) }
 }
