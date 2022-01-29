@@ -2,10 +2,11 @@ package br.com.alisson.financas.presenter.activity.transactionlist
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import br.com.alisson.financas.domain.repository.FinanceRepository
-import br.com.alisson.financas.domain.repository.TransactionsRepository
-import br.com.alisson.financas.domain.model.Transaction
-import br.com.alisson.financas.data.util.FinanceCategory
+import br.com.alisson.financas.domain.TransactionFactory
+import br.com.alisson.financas.domain.usecase.CreateTransactionUseCase
+import br.com.alisson.financas.domain.usecase.GetFinanceUseCase
+import br.com.alisson.financas.domain.usecase.GetTransactionsUseCase
+import br.com.alisson.financas.domain.usecase.UpdateFinanceUseCase
 import br.com.alisson.financas.presenter.activity.home.HomeViewModel
 import br.com.alisson.financas.presenter.activity.home.HomeViewState
 import com.nhaarman.mockitokotlin2.verify
@@ -24,7 +25,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.junit.MockitoJUnitRunner
-import java.util.*
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
@@ -34,12 +34,19 @@ class TransactionListViewModelTest {
     val rule = InstantTaskExecutorRule()
 
     @Mock
-    private lateinit var transactionListObserver: Observer<HomeViewState>
+    private lateinit var homeViewStateObserver: Observer<HomeViewState>
 
-    private val trRepository = mockk<TransactionsRepository>()
-    private val fnRepository = mockk<FinanceRepository>()
+    private val getTransaction = mockk<GetTransactionsUseCase>()
+    private val createTransaction = mockk<CreateTransactionUseCase>()
+    private val getFinance = mockk<GetFinanceUseCase>()
+    private val updateFinance = mockk<UpdateFinanceUseCase>()
 
-    private val viewModel = HomeViewModel(trRepository, fnRepository)
+    private val viewModel = HomeViewModel(
+        getFinance,
+        getTransaction,
+        createTransaction,
+        updateFinance
+    )
 
     private val testDispatcher = TestCoroutineDispatcher()
 
@@ -55,24 +62,22 @@ class TransactionListViewModelTest {
     }
 
     @Test
-    fun `when view model getTransactions get success then sets transactionListLiveData`() = runBlocking {
-        // Arrange
-        val list = listOf(
-            Transaction(1,100.0, "Economia", FinanceCategory.REVENUE.name, Calendar.getInstance())
-        )
-        val transactionViewState = HomeViewState.ListViewState(false, list)
+    fun getTransactions_return_success_sets_homeViewState() = runBlocking {
 
-        coEvery { trRepository.getAllTransactions() } returns list
+        //GIVEN
+        val homeViewState = HomeViewState.ListViewState(false, TransactionFactory.transactions)
 
-        viewModel.homeViewState.observeForever(transactionListObserver)
+        viewModel.homeViewState.observeForever(homeViewStateObserver)
+
+        coEvery { getTransaction() } returns TransactionFactory.transactions
 
 
-        // Act
+        //WHEN
         viewModel.getTransactions()
 
 
-        // Assert
-        verify(transactionListObserver).onChanged(transactionViewState)
+        //THEN
+        verify(homeViewStateObserver).onChanged(homeViewState)
     }
 
 }
