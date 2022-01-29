@@ -1,7 +1,7 @@
 package br.com.alisson.financas.domain.usecase
 
-import br.com.alisson.financas.data.local.repository.finance.FinanceRepository
 import br.com.alisson.financas.domain.model.Finance
+import br.com.alisson.financas.domain.repository.FinanceRepository
 
 class GetFinance(
     private val repository: FinanceRepository

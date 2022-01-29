@@ -1,5 +1,6 @@
 package br.com.alisson.financas.presenter.activity.home
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,7 +18,8 @@ class HomeViewModel(
     private val updateFinanceUseCase: UpdateFinanceUseCase
 ) : ViewModel() {
 
-    val homeViewState: MutableLiveData<HomeViewState> = MutableLiveData()
+    private val _homeViewState = MutableLiveData<HomeViewState>()
+    val homeViewState = _homeViewState as LiveData<HomeViewState>
 
     fun getFinanceAndTransactions() {
         getFinance()
@@ -32,7 +34,7 @@ class HomeViewModel(
     fun getTransactions() {
         viewModelScope.launch {
             val transactionList = getTransactionsUseCase()
-            homeViewState.value = HomeViewState.ListViewState(false, transactionList)
+            _homeViewState.value = HomeViewState.ListViewState(false, transactionList)
         }
     }
 
@@ -45,7 +47,7 @@ class HomeViewModel(
     fun getFinance() {
         viewModelScope.launch {
             val finance = getFinanceUseCase()
-            homeViewState.value = HomeViewState.DashboardViewState(finance)
+            _homeViewState.value = HomeViewState.DashboardViewState(finance)
         }
     }
 

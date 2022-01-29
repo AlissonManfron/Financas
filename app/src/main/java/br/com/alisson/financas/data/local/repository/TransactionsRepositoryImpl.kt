@@ -1,9 +1,10 @@
-package br.com.alisson.financas.data.local.repository.transaction
+package br.com.alisson.financas.data.local.repository
 
 import br.com.alisson.financas.data.local.dao.TransactionDao
 import br.com.alisson.financas.data.mapper.toTransactionEntity
 import br.com.alisson.financas.data.mapper.toTransactionList
 import br.com.alisson.financas.domain.model.Transaction
+import br.com.alisson.financas.domain.repository.TransactionsRepository
 
 class TransactionsRepositoryImpl(
     private val transactionDao: TransactionDao

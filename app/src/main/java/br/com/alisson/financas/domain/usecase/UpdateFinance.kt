@@ -1,8 +1,8 @@
 package br.com.alisson.financas.domain.usecase
 
-import br.com.alisson.financas.data.local.repository.finance.FinanceRepository
 import br.com.alisson.financas.data.util.FinanceCategory
 import br.com.alisson.financas.domain.model.Transaction
+import br.com.alisson.financas.domain.repository.FinanceRepository
 
 class UpdateFinance(
     private val repository: FinanceRepository

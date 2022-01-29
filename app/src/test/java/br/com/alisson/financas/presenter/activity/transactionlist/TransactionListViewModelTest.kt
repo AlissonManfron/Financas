@@ -2,8 +2,8 @@ package br.com.alisson.financas.presenter.activity.transactionlist
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import br.com.alisson.financas.data.local.repository.finance.FinanceRepository
-import br.com.alisson.financas.data.local.repository.transaction.TransactionsRepository
+import br.com.alisson.financas.domain.repository.FinanceRepository
+import br.com.alisson.financas.domain.repository.TransactionsRepository
 import br.com.alisson.financas.domain.model.Transaction
 import br.com.alisson.financas.data.util.FinanceCategory
 import br.com.alisson.financas.presenter.activity.home.HomeViewModel

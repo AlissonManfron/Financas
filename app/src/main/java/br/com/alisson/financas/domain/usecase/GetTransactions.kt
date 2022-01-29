@@ -1,8 +1,7 @@
 package br.com.alisson.financas.domain.usecase
 
-import br.com.alisson.financas.data.local.repository.transaction.TransactionsRepository
 import br.com.alisson.financas.domain.model.Transaction
-import java.lang.Exception
+import br.com.alisson.financas.domain.repository.TransactionsRepository
 
 class GetTransactions(
     private val repository: TransactionsRepository

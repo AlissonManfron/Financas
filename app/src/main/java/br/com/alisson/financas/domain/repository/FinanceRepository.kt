@@ -1,4 +1,4 @@
-package br.com.alisson.financas.data.local.repository.finance
+package br.com.alisson.financas.domain.repository
 
 import br.com.alisson.financas.domain.model.Finance
 

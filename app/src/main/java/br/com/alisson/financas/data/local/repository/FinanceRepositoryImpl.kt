@@ -1,9 +1,10 @@
-package br.com.alisson.financas.data.local.repository.finance
+package br.com.alisson.financas.data.local.repository
 
 import br.com.alisson.financas.data.local.dao.FinanceDao
 import br.com.alisson.financas.data.mapper.toFinance
 import br.com.alisson.financas.data.mapper.toFinanceEntity
 import br.com.alisson.financas.domain.model.Finance
+import br.com.alisson.financas.domain.repository.FinanceRepository
 
 class FinanceRepositoryImpl(
     private val financeDao: FinanceDao

@@ -1,19 +1,16 @@
-package br.com.alisson.financas.data.di
+package br.com.alisson.financas.di
 
 import android.app.Application
 import androidx.room.Room
 import br.com.alisson.financas.data.local.AppDatabase
 import br.com.alisson.financas.data.local.dao.FinanceDao
 import br.com.alisson.financas.data.local.dao.TransactionDao
-import br.com.alisson.financas.data.local.repository.finance.FinanceRepository
-import br.com.alisson.financas.data.local.repository.finance.FinanceRepositoryImpl
-import br.com.alisson.financas.data.local.repository.transaction.TransactionsRepository
-import br.com.alisson.financas.data.local.repository.transaction.TransactionsRepositoryImpl
+import br.com.alisson.financas.data.local.repository.FinanceRepositoryImpl
+import br.com.alisson.financas.data.local.repository.TransactionsRepositoryImpl
+import br.com.alisson.financas.domain.repository.FinanceRepository
+import br.com.alisson.financas.domain.repository.TransactionsRepository
 import br.com.alisson.financas.domain.usecase.*
-import br.com.alisson.financas.presenter.activity.home.HomeViewModel
-import br.com.alisson.financas.presenter.adapter.TransactionsListAdapter
 import org.koin.android.ext.koin.androidApplication
-import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val dataModule = module {
