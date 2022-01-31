@@ -16,7 +16,7 @@
 > - padrão de arquitetura: MVVM + Clean architecture
 > - chamadas assíncronas: Coroutines
 > - lib de persistência: Room
-> - injeção de dependiência: Koin
+> - injeção de dependência: Koin
 > - Testes unitários
 >
 <br/>
