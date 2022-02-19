@@ -4,9 +4,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import br.com.alisson.financas.data.extensions.toExpenseRS
-import br.com.alisson.financas.data.extensions.toRS
-import br.com.alisson.financas.data.extensions.toRevenueRS
 import br.com.alisson.financas.databinding.ActivityHomeBinding
 import br.com.alisson.financas.domain.model.Transaction
 import br.com.alisson.financas.presenter.activity.transacion.AlertAddTransaction
@@ -43,9 +40,9 @@ class HomeActivity : AppCompatActivity() {
         viewModel.homeViewState.observe(this, { viewState ->
             when (viewState) {
                 is HomeViewState.DashboardViewState -> {
-                    binding.listTransaction.resumeCardRevenue.text = viewState.revenue.toRevenueRS()
-                    binding.listTransaction.resumeCardExpense.text = viewState.expense.toExpenseRS()
-                    binding.listTransaction.resumeCardTotal.text = viewState.total.toRS()
+                    binding.listTransaction.resumeCardRevenue.text = viewState.revenue
+                    binding.listTransaction.resumeCardExpense.text = viewState.expense
+                    binding.listTransaction.resumeCardTotal.text = viewState.total
                 }
 
                 is HomeViewState.ListViewState -> {
