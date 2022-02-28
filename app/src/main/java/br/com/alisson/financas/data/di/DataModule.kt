@@ -1,4 +1,4 @@
-package br.com.alisson.financas.di
+package br.com.alisson.financas.data.di
 
 import android.app.Application
 import androidx.room.Room

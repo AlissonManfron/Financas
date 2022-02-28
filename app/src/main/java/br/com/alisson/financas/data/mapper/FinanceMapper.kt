@@ -6,7 +6,7 @@ import br.com.alisson.financas.domain.model.Finance
 fun Finance.toFinanceEntity(): FinanceEntity {
     return with(this) {
         FinanceEntity(
-            id = this.id ?: 0,
+            id = this.id,
             revenue = this.revenue,
             expense = this.expense,
             total = this.total

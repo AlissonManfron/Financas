@@ -33,8 +33,8 @@ fun List<TransactionEntity>.toTransactionList(): List<Transaction> = with(this) 
     val transactions = mutableListOf<Transaction>()
 
     this.toList().forEach {
-        val st = it.toTransaction()
-        transactions += st
+        val transaction = it.toTransaction()
+        transactions += transaction
     }
 
     return transactions
