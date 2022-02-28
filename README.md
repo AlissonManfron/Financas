@@ -1,13 +1,14 @@
-# Financas
+# Finanças Pessoais
 
 > ## Descrição
 >
-> - Aplicativo para controle de finanças pessoais.
+> - Aplicativo simples para controle de finanças pessoais.
+> - Serviu muito bem para o estudo do padrão de arquitetura MVVM + Clean Architecture, junto com um banco de dados utilizando a lib Room e injeção de dependências com a lib Koin.
 > 
 <br/>
 
 > ## Status
-> Em desenvolvimento
+> Finalizado.
 <br/>
 
 > ## Tecnologias
