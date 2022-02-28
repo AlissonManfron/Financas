@@ -6,7 +6,7 @@ import java.util.*
 
 object TransactionFactory {
 
-    val transactions = listOf(
+    var transactions = mutableListOf(
         Transaction(
             0,
             5000.00,
@@ -36,4 +36,12 @@ object TransactionFactory {
             Calendar.getInstance()
         )
     )
+
+    fun addTransacion(transaction: Transaction) {
+        transactions.add(transaction)
+    }
+
+    fun removeLast() {
+        transactions.removeLast()
+    }
 }
