@@ -15,4 +15,5 @@
     <string name="revenue_hint">Econômia</string>
     <string name="expense_hint">Conta de luz</string>
     <string name="button_save_transaction">Salvar</string>
+    <string name="msg_empty_fields">Favor, preencha todos os campos!</string>
 </resources>

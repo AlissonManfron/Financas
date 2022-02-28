@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import br.com.alisson.financas.R
 import br.com.alisson.financas.domain.model.Transaction
 import br.com.alisson.financas.data.util.FinanceCategory
@@ -41,11 +42,15 @@ class AlertAddTransaction {
 
                 btnSave.setOnClickListener {
                     val description = editDescription.text.toString()
-                    val price = editPrice.text.toString().toDouble()
+                    val price = editPrice.text.toString()
                     val category = if (isRenenue) FinanceCategory.REVENUE.name else FinanceCategory.EXPENSE.name
 
-                    callback.onclickListener(Transaction(null, price, description, category, Calendar.getInstance()))
-                    alert?.dismiss()
+                    if (description.isEmpty() || price.isEmpty()) {
+                        Toast.makeText(activity, R.string.msg_empty_fields, Toast.LENGTH_SHORT).show()
+                    } else {
+                        callback.onclickListener(Transaction(null, price.toDouble(), description, category, Calendar.getInstance()))
+                        alert?.dismiss()
+                    }
                 }
 
                 builder.setView(layout)
