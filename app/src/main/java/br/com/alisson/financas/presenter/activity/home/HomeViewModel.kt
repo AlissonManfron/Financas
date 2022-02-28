@@ -53,7 +53,9 @@ class HomeViewModel(
 
     fun updateFinance(transaction: Transaction) {
         viewModelScope.launch {
-            updateFinanceUseCase(transaction)
+            val finance = getFinanceUseCase()
+            finance.update(transaction)
+            updateFinanceUseCase(finance)
         }
     }
 }
