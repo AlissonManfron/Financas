@@ -1,4 +1,4 @@
-package br.com.alisson.financas.presenter.activity.transactionlist
+package br.com.alisson.financas.presenter.activity.home
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
@@ -7,8 +7,6 @@ import br.com.alisson.financas.domain.usecase.CreateTransactionUseCase
 import br.com.alisson.financas.domain.usecase.GetFinanceUseCase
 import br.com.alisson.financas.domain.usecase.GetTransactionsUseCase
 import br.com.alisson.financas.domain.usecase.UpdateFinanceUseCase
-import br.com.alisson.financas.presenter.activity.home.HomeViewModel
-import br.com.alisson.financas.presenter.activity.home.HomeViewState
 import com.nhaarman.mockitokotlin2.verify
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -28,7 +26,7 @@ import org.mockito.junit.MockitoJUnitRunner
 
 @ExperimentalCoroutinesApi
 @RunWith(MockitoJUnitRunner::class)
-class TransactionListViewModelTest {
+class HomeViewModelTest {
 
     @get:Rule
     val rule = InstantTaskExecutorRule()
