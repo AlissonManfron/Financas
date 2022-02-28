@@ -54,14 +54,18 @@ class HomeActivity : AppCompatActivity() {
         })
 
         binding.fabTransactionAddRevenue.setOnClickListener {
-            binding.fabBtn.close(true)
+            closeFab()
             showAlertAddTransaction(true)
         }
 
         binding.fabTransactionAddExpense.setOnClickListener {
-            binding.fabBtn.close(true)
+            closeFab()
             showAlertAddTransaction(false)
         }
+    }
+
+    private fun closeFab() {
+        with(binding) { fabBtn.close(true) }
     }
 
     private fun showAlertAddTransaction(isRenenue: Boolean) {
