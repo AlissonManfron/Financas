@@ -2,8 +2,8 @@
 
 > ## Descrição
 >
-> - Aplicativo simples para controle de finanças pessoais.
-> - Serviu muito bem para o estudo do padrão de arquitetura MVVM + Clean Architecture, junto com um banco de dados utilizando a lib Room e injeção de dependências com a lib Koin.
+> - Aplicativo de controle de finanças pessoais.
+> - Me proporcionou estudar o padrão de arquitetura MVVM + Clean Architecture, junto com um banco de dados utilizando a lib Room e injeção de dependências com a lib Koin.
 > 
 <br/>
 
